@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Search</label>
+        <input type="text" class="form-control" name="query" [(ngModel)]="query" (keyup)="search()" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search here">
+      </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>category</th>
+                <th>Name</th>
+                <th>price</th>
+                <th>pic</th>
+                <th>Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <th>{{product.id}}</th>
+                <td>{{product.category}}</td>
+                <td>{{product.name}}</td>
+ 
+                <td>{{product.price}}</td>
+                <th> <img src="http://localhost:8080/images/{{product.pic}}" class="img-fluid rounded-circle" height="50px" width="50px"/> </th>
+                <td>
+                    <a class="fa fa-trash fa-lg text-danger " (click)="deleteProduct(product.id)"></a>
+                    <a (click)="editProduct(product.id)" class="fa fa-edit fa-lg text-success"></a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
